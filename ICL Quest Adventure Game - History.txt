@@ -1,0 +1,38 @@
+Quest, 1983 Doug Urquhart 
+
+You are in a small log cabin in the mountains. There is a door to the north 
+and a trapdoor in the floor. Looking upwards into the cobwebbed gloom, you 
+perceive an air-conditioning duct. Hanging crookedly above the fireplace is a 
+picture of Whistler’s mother, with the following inscription underneath: ‘If 
+death strikes and all is lost - 1 shall put you straight’. 
+
+If you recognise the above, then you’ve come in contact with some of ICL’s 
+other software, the games! 
+
+Inspired by Adventure, Keith Sheppard and I decided to produce an ICL 
+adventure game, not restricted to the mainframe environment and easily ported 
+to new environments in the future. I won’t bore you with the architectural 
+details but it would appear we were fairly successful, since the game is still alive 
+and well, having survived System 10, System 25, DRS 20, CPM, DOS and now 
+Windows. It took shape over about three years during which we were joined 
+by Jerry McCarthy and finally Quest was released to the waiting world in 1983. 
+
+It’s hard to describe the impact of the game (no graphics, no sound effects, 
+no windows), just textual descriptions of what was going on and a heavy 
+reliance on human imagination to fill in the blanks. Within a very short time it 
+spread throughout the world. Even now, I occasionally come across it on 
+customer sites in places like Tulsa or Oklahoma City. 
+
+Quest is, as they say, functionally rich. We packed over two hundred places 
+into our small part of Cyberspace and peopled them with dragons, elves, 
+insurance salesmen and some of our colleagues. One particularly hated manager 
+was placed, name anagrammatized to avoid legal action, in a rubber goods shop
+down a sleazy alley near the railway line. He’s still there, if you care to look. 
+
+As PCs became available, Quest moved onto them but soon found itself 
+surrounded by a gang of newcomers: games which exploited the graphics 
+facilities of the new environment and games produced by people who were 
+actually paid to do so! It was an unequal contest. Quest still lives, but in a 
+manner akin to those beautifully polished steam engines maintained by 
+preservation societies, good for a gentle run on bank holiday weekends, but not 
+really suitable for everyday use. 

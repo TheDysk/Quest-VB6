@@ -1,0 +1,24 @@
+Attribute VB_Name = "MAIN_TXT"
+' main.txt - global definitions
+Type T0109
+  M0114 As String * 4
+  M011B As String * 4
+  M0122 As String * 4
+  M0129 As String * 4
+  M0130 As String * 4
+  M0137 As String * 4
+End Type
+
+Type T013D
+  M0149 As String * 100
+End Type
+
+Type T014E
+  M015B As String * 1
+  M0161 As String * 49
+  M0167 As String * 49
+  M016D As String * 1
+End Type
+
+Global gv0090 As String
+Global gv0094 As String
