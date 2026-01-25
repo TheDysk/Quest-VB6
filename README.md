@@ -29,7 +29,7 @@ I located a VB3 executable decompiler application and extracted the VB3 project 
 
 The decompiled project files do not contain the original variables names. The original variables names were replaced by sudo-variable names by the original VB3 compiler. I have compared the VB6 code to the original BASIC listing and have resolved most of the variable names. There are some outstanding that were added by the original VB3 developer and require further analysis to identify their purpose and assign sensible names. 
 
-Due to differences between the way BASIC V1.0 and Visual BASIC handles variables, some variables have had to be renames as the same name was being used for both String and Integer variables. Something that BASIC V1.o allows but VB does not. These have been listed in the **"Variables names changed to avoid conflicts.txt"** file.
+Due to differences between the way BASIC V1.0 and Visual BASIC handles variables, some variables have had to be renames as the same name was being used for both String and Integer variables. Something that BASIC V1.0 allows but VB does not. These have been listed in the **"Variables names changed to avoid conflicts.txt"** file.
 
 
 
