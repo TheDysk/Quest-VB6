@@ -31,7 +31,7 @@ The decompiled project files do not contain the original variables names. The or
 
 Due to differences between the way BASIC V1.0 and Visual BASIC handles variables, some variables have had to be renames as the same name was being used for both String and Integer variables. Something that BASIC V1.0 allows but VB does not. These have been listed in the **"Variables names changed to avoid conflicts.txt"** file.
 
-
+I have some additional enhancements to make such as merging the input command form into the main game form and give the option of changing the text justification in the main form.
 
 ## <u>Running the Game</u>
 
