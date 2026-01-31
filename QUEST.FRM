@@ -404,9 +404,9 @@ Dim l02AE As Variant
 1090  If AC$ <> "?" Then GoTo 3000
 1100  G% = G% - 1: If G% > 0 Then GoTo 1060
 1110  Y% = 0: For X% = 1 To 25 Step 4
-1120  If Mid$("LOOKINVEFEEDSCOREND ATTAKILL", X%, 4) = W1$ Then Y% = (X% + 3) / 4
+1120  If Mid$("LOOKINVEFEEDSCOREND QUITATTAKILL", X%, 4) = W1$ Then Y% = (X% + 3) / 4
 1130  Next X%: G% = 1
-1140  On Y% GoTo 1560, 1500, 1410, 1570, 1600, 1400, 1410
+1140  On Y% GoTo 1560, 1500, 1410, 1570, 1600, 1600, 1400, 1410
 1150  If AL%(G%) <> SI% And AL%(G%) <> 0 Then GoTo 1190 Else R% = AR%(G%): GoSub 9010
 1160  If Mid$(RC$, 26, 4) <> "* KR" Then GoTo 1180
 1170  R% = Val(Mid$(RC$, 30, 4)): GoSub 8300: If AC$ = "?" Then GoTo 1190 Else GoTo 3000

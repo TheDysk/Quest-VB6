@@ -34,7 +34,7 @@ Due to differences between the way BASIC V1.0 and Visual BASIC handles variables
 
 **25/01/2026 - V1.00** - Game ported from Visual Basic 3 to Visual Basic 6. Replacement of Sudo-variable names with correct names from the original BASIC source code. Addition of Debug functionality. 32bit executable compiled 
 
-**31/01/2026 - V1.10** - Added text justification options for game text, moved game command line onto main form, and moved the "Show Debug Form" option onto the main form. 
+**31/01/2026 - V1.10** - Added text justification options for game text, moved game command line onto main form, and moved the "Show Debug Form" option onto the main form. Added QUIT command.
 
 ## <u>Running the Game</u>
 
