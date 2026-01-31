@@ -24,14 +24,6 @@ Begin VB.Form nquesti
    PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   1095
    ScaleWidth      =   6180
-   Begin VB.CheckBox ShowDebug 
-      Caption         =   "Show Debug Data"
-      Height          =   255
-      Left            =   4080
-      TabIndex        =   1
-      Top             =   840
-      Width           =   1935
-   End
    Begin VB.TextBox InputLine 
       Appearance      =   0  'Flat
       BeginProperty Font 
@@ -85,21 +77,7 @@ Private Sub Form_Load()
     hMenu = GetSystemMenu(Me.hwnd, False)
     Call RemoveMenu(hMenu, SC_CLOSE, MF_BYCOMMAND)
     
-    ShowDebug.Value = IIf(DebugData.Visible, 1, 0)
     
 End Sub
 
-
-
-Private Sub ShowDebug_Click()
-    ' Check if the checkbox is checked (value of 1)
-    If ShowDebug.Value = vbChecked Then
-        DebugData.Visible = True
-        ' Bring it to the front if it was hidden behind other windows
-        DebugData.ZOrder 0
-    Else
-        DebugData.Visible = False
-    End If
-
-End Sub
 

@@ -11,7 +11,7 @@ Begin VB.Form About
    StartUpPosition =   3  'Windows Default
    Begin VB.Label Label4 
       Alignment       =   2  'Center
-      Caption         =   "2025 Conversion to Windows Visual Basic 6 (32bit) and addition of Debug functionality by Simon Round (thedysk@gmail.com)"
+      Caption         =   "2025 Conversion to Windows Visual Basic 6 (32bit) and Enhancements by Simon Round (thedysk@gmail.com)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   13.5
@@ -65,7 +65,7 @@ Begin VB.Form About
    End
    Begin VB.Label Label1 
       Alignment       =   2  'Center
-      Caption         =   "Quest"
+      Caption         =   "Quest V1.10"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   24

@@ -1,8 +1,9 @@
 VERSION 5.00
+Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "RICHTX32.OCX"
 Begin VB.Form Quest 
    Appearance      =   0  'Flat
    BackColor       =   &H00004000&
-   BorderStyle     =   3  'Fixed Dialog
+   BorderStyle     =   1  'Fixed Single
    Caption         =   "Quest"
    ClientHeight    =   6750
    ClientLeft      =   555
@@ -21,9 +22,79 @@ Begin VB.Form Quest
    ForeColor       =   &H80000008&
    Icon            =   "QUEST.frx":0000
    LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   6750
    ScaleWidth      =   9795
+   Begin VB.TextBox FocusSink 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00004000&
+      BorderStyle     =   0  'None
+      Height          =   285
+      Left            =   480
+      TabIndex        =   9
+      Top             =   6360
+      Width           =   375
+   End
+   Begin VB.TextBox InputLine 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Arial Narrow"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   495
+      Left            =   480
+      TabIndex        =   7
+      Top             =   5760
+      Width           =   6495
+   End
+   Begin VB.CheckBox ShowDebug 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00004000&
+      Caption         =   "Show Debug Data"
+      ForeColor       =   &H8000000E&
+      Height          =   255
+      Left            =   7200
+      TabIndex        =   6
+      Top             =   6360
+      Width           =   2055
+   End
+   Begin RichTextLib.RichTextBox Text1 
+      Height          =   4575
+      Left            =   480
+      TabIndex        =   4
+      Top             =   120
+      Width           =   8895
+      _ExtentX        =   15690
+      _ExtentY        =   8070
+      _Version        =   393217
+      Enabled         =   -1  'True
+      Appearance      =   0
+      TextRTF         =   $"QUEST.frx":030A
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Arial Narrow"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VB.ComboBox Combo1 
+      Height          =   315
+      Left            =   1800
+      TabIndex        =   3
+      Text            =   "Combo1"
+      Top             =   4800
+      Width           =   1335
+   End
    Begin VB.CommandButton Command2 
       Caption         =   "About"
       BeginProperty Font 
@@ -37,7 +108,7 @@ Begin VB.Form Quest
       EndProperty
       Height          =   495
       Left            =   7200
-      TabIndex        =   3
+      TabIndex        =   2
       Top             =   5760
       Width           =   2055
    End
@@ -56,14 +127,14 @@ Begin VB.Form Quest
       ForeColor       =   &H00FFFFFF&
       Height          =   495
       Left            =   7200
-      TabIndex        =   2
+      TabIndex        =   1
       Top             =   4920
       Width           =   2055
    End
    Begin VB.CommandButton Command1 
       Appearance      =   0  'Flat
       BackColor       =   &H00008000&
-      Caption         =   "Quest"
+      Caption         =   "  Quest   Click to run"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   24
@@ -73,31 +144,49 @@ Begin VB.Form Quest
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   975
-      Left            =   3120
-      TabIndex        =   1
-      Top             =   5400
+      Height          =   1335
+      Left            =   3480
+      TabIndex        =   0
+      Top             =   5040
       Width           =   3015
    End
-   Begin VB.TextBox Text1 
-      Alignment       =   2  'Center
-      Appearance      =   0  'Flat
-      Enabled         =   0   'False
+   Begin VB.Label Label2 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Enter Command"
       BeginProperty Font 
-         Name            =   "Arial Narrow"
-         Size            =   12
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   4575
-      Left            =   360
-      MultiLine       =   -1  'True
-      TabIndex        =   0
-      Top             =   120
-      Width           =   8895
+      ForeColor       =   &H8000000E&
+      Height          =   375
+      Left            =   600
+      TabIndex        =   8
+      Top             =   5400
+      Width           =   1935
+   End
+   Begin VB.Label Label1 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Alignment"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000014&
+      Height          =   255
+      Left            =   600
+      TabIndex        =   5
+      Top             =   4800
+      Width           =   1095
    End
    Begin VB.Line Line1 
       X1              =   960
@@ -119,7 +208,7 @@ Private Declare Function RemoveMenu Lib "user32" _
 
 Private Const MF_BYCOMMAND = &H0&
 Private Const SC_CLOSE = &HF060&
-
+Private IsLoading As Boolean
 
 ' QUEST.FRM
 Option Explicit
@@ -133,6 +222,7 @@ Dim m00B6 As T0109
 Dim m00D0 As T013D
 Dim m0136 As T013D
 Dim m019C As T014E
+
 
 Private Sub Command1_Click()
 
@@ -156,7 +246,7 @@ Dim M As Integer
 Dim NewGame As String
 Dim X As Integer
 Dim ValidFile As String
-Dim ARR As String
+Dim ARR As String ' AR$ (string variable) changed to ARR$ as there is also a AR% (integer variables)
 Dim S2 As String
 Dim S1 As String
 Dim G As Integer
@@ -180,12 +270,12 @@ Dim KG As String
 Dim s As String
 Dim MsgText As String
 Dim Score As Variant
-Dim MM As String
+Dim MM As String ' M$ (string variable) changed to MM$ as there is also a M% (integer variables)
 Dim LV As Integer
 Dim N As String
-Dim NN As Integer
+Dim NN As Integer ' N% (integer variable) changed to NN% as there is also a N$ (string variables)
 Dim CR As String
-Dim STT As String
+Dim STT As String ' ST$ (string variable) changed to STT$ as there is also a ST% (integer variables)
 Dim l026C As Integer
 Dim TY As String
 Dim FL As Integer
@@ -492,13 +582,22 @@ Dim l02AE As Variant
 7020  If MsgText$ <> "" Then Text1.Text = MsgText$
       GoSub 9500
       scorebox.Text = "Score: " & Score
-' 7021  nquesti.Show 1
-7021  nquesti.Show
-      Do While nquesti.Visible
+
+      ' Loop waiting for command input
+7021  InputLine.Visible = True ' nquesti.Show
+      DoEvents
+      
+      On Error Resume Next
+      InputLine.SetFocus ' Set the inputline box as the focus so the cursor moves here for input
+      On Error GoTo 0
+      
+      ' Do While InputLine.Visible = True ' nquesti.Visible
+      Do While gv0090 = ""
         DoEvents
       Loop
 
       CO$ = gv0090
+      gv0090 = ""
       MsgText$ = ""
 7025  If CO$ = "" Then
       GoTo 7021
@@ -788,4 +887,83 @@ Private Sub Form_Load()
     hMenu = GetSystemMenu(Me.hwnd, False)
     Call RemoveMenu(hMenu, SC_CLOSE, MF_BYCOMMAND)
 
+    InputLine.Visible = False ' make the input line invisible
+    
+    ShowDebug.Value = IIf(DebugData.Visible, 1, 0)
+
+    IsLoading = True ' used to avoid the combo_click code from trying to change the text box alignment before the form has completed loading
+
+    ' Set the default text alignment options in the combo box at form load time.
+    Combo1.AddItem "Left"
+    Combo1.AddItem "Center"
+    Combo1.AddItem "Right"
+    Combo1.ListIndex = 1
+    
+    IsLoading = False
+    
+    ' set the default text alignment in the text box to centre
+    Text1.SelStart = 0
+    Text1.SelLength = Len(Text1.Text)
+    Text1.SelAlignment = rtfCenter
+
 End Sub
+
+
+Private Sub Combo1_Click()
+
+    ' if the form is still loading then exit the sub
+    If IsLoading Then Exit Sub
+    
+    ' set the main text box alignment depending on the option selected in the combo box
+    Text1.SelStart = 0
+    Text1.SelLength = Len(Text1.Text)
+    
+    Select Case Combo1.Text
+        Case "Left"
+            Text1.SelAlignment = rtfLeft
+        Case "Center"
+            Text1.SelAlignment = rtfCenter
+        Case "Right"
+            Text1.SelAlignment = rtfRight
+    End Select
+
+End Sub
+
+
+Private Sub InputLine_KeyPress(KeyAscii As Integer)
+
+    If KeyAscii = 13 Then
+       KeyAscii = 0
+        
+        If Trim$(InputLine.Text) = "" Then
+            ' Blank input — ignore it and keep the textbox visible
+            Exit Sub
+        End If
+        
+        
+        gv0090 = InputLine.Text
+        
+        InputLine.Text = ""
+        
+        ' Unload Me
+        FocusSink.SetFocus
+        
+        InputLine.Visible = False
+    End If
+
+End Sub
+
+Private Sub ShowDebug_Click()
+
+    ' Check if the checkbox is checked (value of 1)
+    If ShowDebug.Value = vbChecked Then
+        DebugData.Visible = True
+        ' Bring it to the front if it was hidden behind other windows
+        DebugData.ZOrder 0
+    Else
+        DebugData.Visible = False
+    End If
+
+End Sub
+
+

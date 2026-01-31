@@ -2,8 +2,3 @@ M$ (string variable) changed to MM$ as there is also a M% (integer variables)
 N% (integer variable) changed to NN% as there is also a N$ (string variables)
 ST$ (string variable) changed to STT$ as there is also a ST% (integer variables)
 AR$ (string variable) changed to ARR$ as there is also a AR% (integer variables)
-
-
-
-
-l0268$ CR

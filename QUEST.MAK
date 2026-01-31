@@ -8,6 +8,7 @@ Form=DebugData.frm
 Module=Startup; Startup.bas
 Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0; MSCOMCTL.OCX
 Form=About.frm
+Object={3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0; RICHTX32.OCX
 IconForm="Quest"
 Startup="Quest"
 HelpFile=""
