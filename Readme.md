@@ -38,5 +38,11 @@ Due to differences between the way BASIC V1.0 and Visual BASIC handles variables
 
 ## <u>Running the Game</u>
 
-The run the game download the zip file called **"QUEST (32bit) - game files.zip"** and extract the Executable and the two datafiles to any folder. Run the exe file and enjoy.
+To install and run the game: -
 
+1. Download **"Quest 32bit Installer.zip"**
+2. Extract to a location of your choosing
+3. Run Setup.exe
+4. When asked for the installation location, do not allow the game to install to either "C:\Program Files" or "C:\Program Files (x86)". Windows 10/11 does not allow programs to read/write data files in their own directory when in these locations, and the game will not work correctly. Instead, install it to another location (e.g. "C:\Quest").
+5. Complete the installation
+6. Run Quest.exe from the installed location.
