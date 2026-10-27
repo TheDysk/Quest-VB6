@@ -14,9 +14,9 @@ I first coming across the DOS version game in 1986, which was written in Microso
 
 I spent over 35 years tracking down the game files. I eventually located Doug Urquhard and made contact. He kindly emailed me the Windows version of the game. 
 
-The Windows version had been written in Visual Basic 3 and therefore as a 16bit executable, would not run on modern 32bit and 64bit windows.
+The Windows version had been written in Visual Basic 3 and therefore, as a 16bit executable, would not run on modern 32bit and 64bit windows.
 
-I tested the game on WIndows98 in a Virtual Machine and, with Doug's permission, uploaded the files to the Interactive Fiction Archive in the early 2020's.
+I tested the game on Windows98 in a Virtual Machine and, with Doug's permission, uploaded the files to the Interactive Fiction Archive in the early 2020's.
 
 **https://unbox.ifarchive.org/?url=/if-archive/games/pc/Quest.zip**
 
